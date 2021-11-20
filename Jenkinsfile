@@ -1,5 +1,9 @@
 pipeline {
     agent any
+    tools {
+    	maven 'Maven_Home'
+        jdk 'JDK_11'
+	}
     stages {
             stage('GitHub trigger for GITScm polling') {
                 steps {
