@@ -17,12 +17,19 @@ pipeline {
                         git branch: 'master', url: 'https://github.com/bipin115/CICD-webapp-deployment-using-ansibe-docker-container.git'  
                 }
             }
-
+            stage('Clean Existing Images and Stop and remove Running container') {            
+                steps {
+                    catchError (buildResult:'SUCCESS', stageResult: 'FAILURE') {
+                    sh "docker images"
+                    sh "docker container ls"
+                    sh "docker container stop html-server-image-nginx"
+                    sh "docker rm -f html-server-image-nginx"
+                    sh "docker image rm -f bipin115/html-server-image-nginx"
+                    }
+                }
+            }
             stage('Docker Build and Tag using Ansible-playbook') {
                 steps {
-                        sh 'ansible all -m ping'
-                        //sh 'ansible webappserver -m file -a "name=/tmp/sample1.txt state=touch"'
-                        //sh 'ansible-playbook -i webappserver .'
                          sh 'docker build -t html-server-image-nginx .'  
                          sh 'docker tag html-server-image-nginx bipin115/html-server-image-nginx:v1'       
                 }
