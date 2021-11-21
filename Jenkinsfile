@@ -17,18 +17,6 @@ pipeline {
                     git branch: 'main', url: 'https://github.com/bipin115/PG_DevOps_SimpliLearn_Projects.git'  
             }
             }
-            
-            stage('Clean existing Images and stop and remove already running container') {            
-                steps {
-                catchError (buildResult:'SUCCESS', stageResult: 'FAILURE') {
-                sh "docker images"
-                sh "docker container ls"
-                sh "docker container stop html-server-image:v1"
-                sh "docker rm -f html-server-image:v1"
-                sh "docker image rm -f bipin115/html-server-image:v1"
-                }
-                }
-            }
 
             stage('Docker Build and Tag using Ansible-playbook') {
             steps {
