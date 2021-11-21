@@ -8,13 +8,13 @@ pipeline {
             stage('GitHub trigger for GITScm polling') {
                 steps {
                     script {
-                        properties([[$class: 'GithubProjectProperty', displayName: '', projectUrlStr: 'https://github.com/bipin115/PG_DevOps_SimpliLearn_Projects.git/'], pipelineTriggers([pollSCM('* * * * *')])])
+                        properties([[$class: 'GithubProjectProperty', displayName: '', projectUrlStr: 'https://github.com/bipin115/CICD-webapp-deployment-using-ansibe-docker-container.git/'], pipelineTriggers([pollSCM('* * * * *')])])
                     }  
                 }
             }
             stage('Git project checkout') {
             steps {
-                    git branch: 'main', url: 'https://github.com/bipin115/PG_DevOps_SimpliLearn_Projects.git'  
+                    git branch: 'main', url: 'https://github.com/bipin115/CICD-webapp-deployment-using-ansibe-docker-container.git'  
             }
             }
 
