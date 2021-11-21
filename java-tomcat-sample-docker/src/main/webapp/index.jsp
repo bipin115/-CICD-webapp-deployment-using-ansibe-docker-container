@@ -1,7 +1,0 @@
-<html>
-<body>
-<h1>PG DO - DevOps Capstone Project</h1>
-<h2>Project - Hangout Point</h2>
-<p>This is a successful Project demonstration of running a Docker container Jenkins Pipeline using Ansible to implement CI/CD Work flow </p>
-</body>
-</html>
