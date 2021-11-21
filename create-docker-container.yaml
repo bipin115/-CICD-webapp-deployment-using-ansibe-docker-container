@@ -1,6 +1,6 @@
 ---
-- hosts: localhost
-  gather_facts: no
+- hosts: webappserver
+  gather_facts: yes
   tasks:
     - name: create build directory
       file:
@@ -18,7 +18,7 @@
         mode: '0644'
     - name: build container image
       docker_image:
-        name: tomcat:8.0
+        name: html-server-image
         build:
           path: /root/demo-dockerfile
           source: build
