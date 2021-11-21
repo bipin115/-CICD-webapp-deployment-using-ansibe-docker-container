@@ -35,7 +35,7 @@ pipeline {
             stage('Run Docker container') {
                 
                 steps {
-                    sh "docker run --name html-server-image:v1 -d -p 9090:8080 bipin115/html-server-image:v1"
+                    sh "docker run --name html-server-image -d -p 9090:8080 bipin115/html-server-image:v1"
                 }
             }
     }
