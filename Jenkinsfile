@@ -14,7 +14,7 @@ pipeline {
             }
             stage('Git project checkout') {
                 steps {
-                        git branch: 'main', url: 'https://github.com/bipin115/CICD-webapp-deployment-using-ansibe-docker-container.git'  
+                        git branch: 'master', url: 'https://github.com/bipin115/CICD-webapp-deployment-using-ansibe-docker-container.git'  
                 }
             }
 
