@@ -20,7 +20,7 @@ pipeline {
 
             stage('Docker Build and Tag using Ansible-playbook') {
             steps {
-                    sh 'docker build -t html-server-image:v1 .'  
+                    sh 'docker build -t html-server-image .'  
                     sh 'docker tag html-server-image bipin115/html-server-image:v1'       
             }
             }
