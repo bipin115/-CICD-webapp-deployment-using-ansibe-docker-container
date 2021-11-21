@@ -21,7 +21,8 @@ pipeline {
             stage('Docker Build and Tag using Ansible-playbook') {
                 steps {
                         sh 'ansible all -m ping'
-                        sh 'ansible-playbook -i webappserver create-docker-container.yaml'
+                        sh 'ansible webappserver -m file -a "name=/tmp/sample1.txt state=touch"'
+                        sh 'ansible-playbook -i webappserver ./create-docker-container.yaml'
                         //sh 'docker build -t html-server-image .'  
                         // sh 'docker tag html-server-image bipin115/html-server-image:v1'       
                 }
